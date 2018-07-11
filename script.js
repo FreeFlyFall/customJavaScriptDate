@@ -19,19 +19,21 @@ function renderTime() {
     // Date End
 
     //Time
-    var currentTime = new Date();
-    var h = currentTime.getHours();
-    var m = currentTime.getMinutes();
-    var s = currentTime.getSeconds();
+    var h = myDate.getHours();
+    var m = myDate.getMinutes();
+    var s = myDate.getSeconds();
     var per;
+
+    // Cycle and meridiem logic
 
     if (h === 24) {
         h = 0;
-        per = "A.M.";
     } else if (h > 12) {
         h = h - 12;
-        // meridiem
         per = "P.M.";
+    }
+    if (h < 12) {
+        per = "A.M."
     }
 
     if (h < 10) {
