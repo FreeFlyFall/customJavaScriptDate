@@ -52,7 +52,9 @@ function renderTime() {
 
     var myClock = document.getElementById("clockDisplay");
     myClock.textContent = dateText;
-    myClock.innerText = dateText;
+var banner =
+document.getElementById("banner");
+  banner.textContent = dateText;
 
     setTimeout("renderTime()", 1000);
     //Time End
