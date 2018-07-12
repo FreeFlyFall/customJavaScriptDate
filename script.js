@@ -4,7 +4,7 @@ function renderTime() {
     // Date
     var myDate = new Date();
     var year = myDate.getYear();
-    //Javascript specific date method considerations
+    // Javascript specific date method considerations
     if (year < 1000) {
         year += 1900;
     }
@@ -18,7 +18,7 @@ function renderTime() {
         "Sep", "Oct", "Nov", "Dec"];
     // Date End
 
-    //Time
+    // Time
     var h = myDate.getHours();
     var meridiem = myDate.getHours();
     var m = myDate.getMinutes();
@@ -30,10 +30,10 @@ function renderTime() {
         h = h - 12;
     }
 
-    if(meridiem < 12) {
-      cycle = "AM";
+    if (meridiem < 12) {
+        cycle = "AM";
     } else {
-      cycle = "PM"
+        cycle = "PM"
     }
 
     //formatting
@@ -47,18 +47,23 @@ function renderTime() {
         s = "0" + s;
     }
 
-    //String for displaying the custom date
-    var dateText = dayArray[day] + ", " + monthArray[month] + " " +
-    dayM + ", " + year + " \n " + h + ":" + m + ":" + s + " " + cycle;
+    // Strings for displaying the custom date
+    var topBarString = dayArray[day] + ", " + monthArray[month] + " " +
+        dayM + ", " + year + " | " + h + ":" + m + ":" + s + " " + cycle;
+    var clockDateString = dayArray[day] + ", " + monthArray[month] + " " +
+        dayM + ", " + year;
+    var clockTimeString = h + ":" + m + ":" + s + " " + cycle;
 
-    var myClock = document.getElementById("clockDisplay");
-    myClock.textContent = dateText;
-var banner =
-document.getElementById("banner");
-  banner.textContent = dateText;
+    // Display text on screen
+    var topBar = document.getElementById("top-bar");
+    topBar.textContent = topBarString;
+    var clockDate = document.getElementById("clock-display");
+    clockDate.textContent = clockDateString;
+    var clockTime = document.getElementById("clock-display2");
+    clockTime.textContent = clockTimeString;
 
     setTimeout("renderTime()", 1000);
-    //Time End
+    // Time End
 }
 
 renderTime();
