@@ -31,11 +31,11 @@ function renderTime() {
         greeting = "Good Night.";
     } else if (meridiem === 5) {
         greeting = "Mern...";
-    } else if (meridiem <= 12) {
+    } else if (meridiem < 12) {
         greeting = "Good Morning!";
     } else if (meridiem <= 18) {
         greeting = "Good Afternoon!";
-    } else if (meridiem <= 20) {
+    } else if (meridiem <= 22) {
         greeting = "Good Evening!";
     } else if (meridiem < 24) {
         greeting = "Good Night.";
