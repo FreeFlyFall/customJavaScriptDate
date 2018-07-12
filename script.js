@@ -20,37 +20,36 @@ function renderTime() {
 
     //Time
     var h = myDate.getHours();
+    var meridiem = myDate.getHours();
     var m = myDate.getMinutes();
     var s = myDate.getSeconds();
-    var per;
+    var cycle;
 
     // Cycle and meridiem logic
-
-    if (h === 24) {
-        h = 0;
-    } else if (h > 12) {
+    if (h > 12) {
         h = h - 12;
-        per = "P.M.";
-    }
-    if (h < 12) {
-        per = "A.M."
     }
 
+    if(meridiem < 12) {
+      cycle = "AM";
+    } else {
+      cycle = "PM"
+    }
+
+    //formatting
     if (h < 10) {
         h = "0" + h;
     }
-
     if (m < 10) {
         m = "0" + m;
     }
-
     if (s < 10) {
         s = "0" + s;
     }
 
     //String for displaying the custom date
     var dateText = dayArray[day] + ", " + monthArray[month] + " " +
-    dayM + ", " + year + " \n " + h + ":" + m + ":" + s + " " + per;
+    dayM + ", " + year + " \n " + h + ":" + m + ":" + s + " " + cycle;
 
     var myClock = document.getElementById("clockDisplay");
     myClock.textContent = dateText;
