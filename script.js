@@ -24,12 +24,27 @@ function renderTime() {
     var m = myDate.getMinutes();
     var s = myDate.getSeconds();
     var cycle;
+    var greeting;
+
+    //Greeting logic
+    if (meridiem <= 4) {
+        greeting = "Good Night.";
+    } else if (meridiem === 5) {
+        greeting = "Mern...";
+    } else if (meridiem <= 12) {
+        greeting = "Good Morning!";
+    } else if (meridiem <= 18) {
+        greeting = "Good Afternoon!";
+    } else if (meridiem <= 20) {
+        greeting = "Good Evening!";
+    } else if (meridiem < 24) {
+        greeting = "Good Night.";
+    }
 
     // Cycle and meridiem logic
     if (h > 12) {
         h = h - 12;
     }
-
     if (meridiem < 12) {
         cycle = "AM";
     } else {
@@ -57,6 +72,8 @@ function renderTime() {
     // Display text on screen
     var topBar = document.getElementById("top-bar");
     topBar.textContent = topBarString;
+    var greetingDisplay = document.getElementById("greeting");
+    greetingDisplay.textContent = greeting;
     var clockDate = document.getElementById("clock-display");
     clockDate.textContent = clockDateString;
     var clockTime = document.getElementById("clock-display2");

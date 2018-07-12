@@ -14,13 +14,13 @@
     text-align: right;
     padding: 5px 20px;
     font: 16px "Open Sans", sans-serif;
-    color: white;
+    color: rgba(224, 223, 223, 0.952);
   }
 
   .container {
       margin: 50px;
       text-align: center;
-      color: rgba(255, 255, 255, 0.733);
+      color: rgba(255, 255, 255, 0.795);
       font: bold 32px "Open Sans", sans-serif;
   }
 
@@ -28,13 +28,13 @@
       margin: auto;
       text-align: center;
       font: bold 32px "Open Sans", sans-serif;
-      color: rgba(235, 235, 235, 0.75);
+      color: rgba(235, 235, 235, 0.836);
       background-color: rgba(14, 14, 54, 0.39);
       width: fit-content;
       border: 1px solid rgba(235, 235, 235, 0.75);
       -webkit-box-shadow: 5px 5px 10px 1px rgba(43,45,75,.25);
       box-shadow: 5px 5px 10px 1px rgba(43,45,75,.25);
-      padding: 10px;
+      padding: 0 30px;
       line-height: 2;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
