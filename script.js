@@ -33,7 +33,7 @@ function renderTime() {
     if (meridiem < 12) {
         cycle = "AM";
     } else {
-        cycle = "PM"
+        cycle = "PM";
     }
 
     //formatting
