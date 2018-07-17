@@ -30,7 +30,7 @@ function renderTime() {
     if (meridiem <= 4) {
         greeting = "Good Night.";
     } else if (meridiem === 5) {
-        greeting = "Mern...";
+        greeting = "Mernin'...";
     } else if (meridiem < 12) {
         greeting = "Good Morning!";
     } else if (meridiem <= 18) {
