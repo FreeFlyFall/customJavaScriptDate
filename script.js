@@ -30,7 +30,7 @@ function renderTime() {
     if (meridiem <= 4) {
         greeting = "Good Night.";
     } else if (meridiem === 5) {
-        greeting = "Mern...";
+        greeting = "Mernin'...";
     } else if (meridiem < 12) {
         greeting = "Good Morning!";
     } else if (meridiem <= 18) {
@@ -62,12 +62,17 @@ function renderTime() {
         s = "0" + s;
     }
 
-    // Strings for displaying the custom date
-    var topBarString = dayArray[day] + ", " + monthArray[month] + " " +
-        dayM + ", " + year + " | " + h + ":" + m + ":" + s + " " + cycle;
-    var clockDateString = dayArray[day] + ", " + monthArray[month] + " " +
-        dayM + ", " + year;
-    var clockTimeString = h + ":" + m + ":" + s + " " + cycle;
+    // Template literal strings for displaying the custom date
+    // Should not use template literals without transpiling with babel, unless you don't want to support IE11-
+    var topBarString = `${dayArray[day]}, ${monthArray[month]} ${dayM}, ${year} | ${h}:${m}:${s} ${cycle}`
+    var clockDateString = `${dayArray[day]}, ${monthArray[month]} ${dayM}, ${year}`;
+    var clockTimeString = `${h}:${m}:${s} ${cycle}`;
+    // Concatenated strings
+    // var topBarString = dayArray[day] + ", " + monthArray[month] + " " +
+    //     dayM + ", " + year + " | " + h + ":" + m + ":" + s + " " + cycle;
+    // var clockDateString = dayArray[day] + ", " + monthArray[month] + " " +
+    //     dayM + ", " + year;
+    // var clockTimeString = h + ":" + m + ":" + s + " " + cycle;
 
     // Display text on screen
     var topBar = document.getElementById("top-bar");
@@ -80,7 +85,6 @@ function renderTime() {
     clockTime.textContent = clockTimeString;
 
     setTimeout("renderTime()", 1000);
-    // Time End
 }
 
 renderTime();
