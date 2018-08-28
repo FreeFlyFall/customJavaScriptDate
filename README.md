@@ -1,3 +1,3 @@
 # customJavaScriptDate
 
-Viewable on GitHub Pages: [Custom Javascript Date](https://codepen.io/FreeFly/pen/bjGQQB)
+Viewable on GitHub Pages: [Custom Javascript Date](https://freeflyfall.github.io/customJavaScriptDate/)
