@@ -1,32 +1,16 @@
-function renderTime() {
-    "use strict";
-
-    // Date
-    var myDate = new Date();
-    var year = myDate.getYear();
-    // Javascript specific date method considerations
-    if (year < 1000) {
-        year += 1900;
-    }
-    var day = myDate.getDay();
-    var month = myDate.getMonth();
-    var dayM = myDate.getDate();
-    var dayArray = ["Sun", "Mon", "Tue",
+// Define Arrays
+var dayArray = ["Sun", "Mon", "Tue",
         "Wed", "Thu", "Fri", "Sat"];
-    var monthArray = ["Jan", "Feb", "Mar", "Apr",
+var monthArray = ["Jan", "Feb", "Mar", "Apr",
         "May", "Jun", "Jul", "Aug",
         "Sep", "Oct", "Nov", "Dec"];
-    // Date End
 
-    // Time
-    var h = myDate.getHours();
-    var meridiem = myDate.getHours();
-    var m = myDate.getMinutes();
-    var s = myDate.getSeconds();
-    var cycle;
-    var greeting;
+var myDate = new Date();
+var meridiem = myDate.getHours();
+var greeting = getGreeting(meridiem);
 
-    //Greeting logic
+function getGreeting(meridiem){
+    // Greeting
     if (meridiem <= 4) {
         greeting = "Good Night.";
     } else if (meridiem === 5) {
@@ -40,6 +24,33 @@ function renderTime() {
     } else if (meridiem < 24) {
         greeting = "Good Night.";
     }
+    return greeting;
+}
+
+function renderTime() {
+    "use strict";
+
+    // Date
+    var myDate = new Date();
+    var year = myDate.getYear();
+    // Javascript specific date method considerations
+    if (year < 1000) {
+        year += 1900;
+    }
+    var day = myDate.getDay();
+    var month = myDate.getMonth();
+    var dayM = myDate.getDate();
+
+    // Time
+    var h = myDate.getHours();
+    var meridiem = myDate.getHours();
+    var m = myDate.getMinutes();
+    var s = myDate.getSeconds();
+    var cycle;
+
+    if(m === 0 && s === 0){
+        greeting = getGreeting(meridiem);
+    }
 
     // Cycle and meridiem logic
     if (h > 12) {
@@ -51,7 +62,7 @@ function renderTime() {
         cycle = "PM";
     }
 
-    //formatting
+    //formatting for single digit hour strings
     if (h < 10) {
         h = "0" + h;
     }
@@ -74,7 +85,7 @@ function renderTime() {
     //     dayM + ", " + year;
     // var clockTimeString = h + ":" + m + ":" + s + " " + cycle;
 
-    // Display text on screen
+    // Display data
     var topBar = document.getElementById("top-bar");
     topBar.textContent = topBarString;
     var greetingDisplay = document.getElementById("greeting");
